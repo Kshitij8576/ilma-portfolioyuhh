@@ -1,0 +1,396 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Applications | PlaceMate</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7fc;
+            color: #24364b;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 18px 7%;
+            background: #102c50;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        nav a:hover {
+            color: #a9d8ff;
+        }
+
+        .applications-page {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 22px;
+        }
+
+        .applications-header {
+            background: linear-gradient(
+                135deg, #102c50, #245d91, #397fb5
+            );
+            color: white;
+            padding: 42px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 25px rgba(16, 44, 80, 0.18);
+        }
+
+        .applications-header .tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: #c8e7ff;
+        }
+
+        .applications-header h1 {
+            margin: 12px 0;
+            font-size: 36px;
+        }
+
+        .applications-header p {
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            color: #173b68;
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            color: #607086;
+            line-height: 1.7;
+        }
+
+        .search-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin: 22px 0 32px;
+            border: 1px solid #e1e9f3;
+            box-shadow: 0 6px 20px rgba(20, 45, 75, 0.05);
+        }
+
+        .search-card label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #173b68;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .search-row input {
+            flex: 1;
+            min-width: 220px;
+            padding: 13px 15px;
+            border: 1px solid #ccd8e6;
+            border-radius: 9px;
+            font-size: 15px;
+        }
+
+        .search-row input:focus {
+            outline: 2px solid #9acbfa;
+            border-color: #245d91;
+        }
+
+        button, .action-link {
+            display: inline-block;
+            border: none;
+            background: #245d91;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        button:hover, .action-link:hover {
+            background: #173b68;
+        }
+
+        .application-card {
+            background: white;
+            border: 1px solid #e0e8f2;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(20, 45, 75, 0.05);
+            transition: transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(20, 45, 75, 0.09);
+        }
+
+        .job-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .application-card h3 {
+            color: #173b68;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .job-category {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #eaf3ff;
+            color: #245d91;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .job-description {
+            color: #607086;
+            line-height: 1.7;
+            margin: 18px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: #fff2cc;
+            color: #805900;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .applied-date {
+            color: #718096;
+            font-size: 13px;
+            margin-top: 18px;
+        }
+
+        .empty-state {
+            text-align: center;
+            background: white;
+            border: 1px solid #e0e8f2;
+            border-radius: 16px;
+            padding: 38px 25px;
+            margin: 25px 0;
+        }
+
+        .empty-state h3 {
+            color: #173b68;
+        }
+
+        .empty-state p {
+            color: #607086;
+            line-height: 1.7;
+        }
+
+        .error {
+            background: #fff0f0;
+            color: #b42318;
+            padding: 13px;
+            border-radius: 9px;
+        }
+
+        .application-actions {
+            margin: 30px 0;
+        }
+
+        footer {
+            background: #102c50;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 18px;
+                justify-content: flex-start;
+            }
+
+            nav a {
+                margin-right: 8px;
+                font-size: 13px;
+            }
+
+            .applications-page {
+                margin-top: 25px;
+                padding: 0 15px;
+            }
+
+            .applications-header {
+                padding: 27px;
+            }
+
+            .applications-header h1 {
+                font-size: 28px;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .search-row input,
+            .search-row button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">PlaceMate</a>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/my-applications">My Applications</a>
+    </nav>
+
+    <main class="applications-page">
+
+        <section class="applications-header">
+            <p class="tagline">YOUR CAREER JOURNEY</p>
+            <h1>My Applications</h1>
+            <p>
+                Every application is a step toward your future.
+                Track your placement journey here.
+            </p>
+        </section>
+
+        <h2 class="section-title">Find Your Applications</h2>
+        <p class="intro-text">
+            Enter the email address you used when applying for a job.
+        </p>
+
+        <section class="search-card">
+            <form action="/my-applications" method="GET">
+                <label for="email">Registered Email Address</label>
+
+                <div class="search-row">
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your registered email"
+                        value="{{ email }}"
+                        required
+                    >
+
+                    <button type="submit">View Applications →</button>
+                </div>
+            </form>
+        </section>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if email and not error %}
+
+            {% if applications %}
+
+                <h2 class="section-title">Your Applied Jobs</h2>
+                <p class="intro-text">
+                    Here are the opportunities you have applied for.
+                </p>
+
+                {% for application in applications %}
+
+                    <article class="application-card">
+
+                        <div class="job-heading">
+                            <h3>{{ application.title }}</h3>
+
+                            <span class="status">
+                                {{ application.status }}
+                            </span>
+                        </div>
+
+                        <span class="job-category">
+                            PLACEMENT OPPORTUNITY
+                        </span>
+
+                        <p class="job-description">
+                            {{ application.description or
+                               'No description available.' }}
+                        </p>
+
+                        <p class="applied-date">
+                            Applied on: {{ application.applied_at }}
+                        </p>
+
+                    </article>
+
+                {% endfor %}
+
+            {% else %}
+
+                <section class="empty-state">
+                    <h3>No applications found</h3>
+                    <p>
+                        No submitted applications were found
+                        for this email address.
+                    </p>
+                    <a class="action-link" href="/">
+                        Explore Opportunities
+                    </a>
+                </section>
+
+            {% endif %}
+
+        {% endif %}
+
+        <div class="application-actions">
+            <a class="action-link" href="/">← Back to Home</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>PlaceMate | Student Placement Portal</p>
+        <p>Building brighter career opportunities for students.</p>
+    </footer>
+
+</body>
+</html>
+```

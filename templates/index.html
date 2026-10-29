@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Portal | PlaceMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header id="home">
+    <h2 class="logo">PlaceMate</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#about">About</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('my_applications') }}">My Applications</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <p class="tagline">YOUR FUTURE STARTS HERE</p>
+
+        <h1>
+            Find the Right Opportunity.<br>
+            <span>Build Your Future.</span>
+        </h1>
+
+        <p class="description">
+            Discover placement opportunities, explore career options,
+            and take the next step in your professional journey.
+        </p>
+
+        <a href="#opportunities" class="button">
+            Explore Opportunities →
+        </a>
+    </section>
+
+    <section class="features" id="about">
+        <h2>Your Career, Our Priority</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Career Opportunities</h3>
+                <p>Discover jobs that match your skills and career goals.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Easy Applications</h3>
+                <p>Explore openings and apply for your preferred roles.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Career Growth</h3>
+                <p>Build confidence and move toward your future career.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="opportunities" id="opportunities">
+        <p class="tagline">CAREER OPPORTUNITIES</p>
+        <h2>Explore Your Next Opportunity</h2>
+        <p class="section-description">
+            Choose a role, review its details, and apply.
+        </p>
+
+        <div class="job-cards">
+
+            <article class="job-card">
+                <div class="job-icon">💻</div>
+                <h3>Web Developer</h3>
+                <p>IT &amp; Software</p>
+                <span class="job-type">Entry Level</span>
+
+                <p class="job-description">
+                    Create and maintain websites using HTML, CSS,
+                    JavaScript, and web development tools.
+                </p>
+
+                <button type="button" class="job-button"
+                    onclick="showDetails('web-details')">
+                    View Details
+                </button>
+
+                <button type="button" class="job-button"
+                    onclick="showApplyForm('Web Developer')">
+                    Apply Now
+                </button>
+
+                <div id="web-details" class="job-details" hidden>
+                    <h3>Web Developer Details</h3>
+                    <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
+                    <p><strong>Responsibilities:</strong> Create and maintain websites.</p>
+                    <p><strong>Eligibility:</strong> Basic web development knowledge.</p>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <div class="job-icon">📊</div>
+                <h3>Data Analyst</h3>
+                <p>Data &amp; Analytics</p>
+                <span class="job-type">Entry Level</span>
+
+                <p class="job-description">
+                    Analyze data and prepare reports using Excel,
+                    SQL, and basic data analysis tools.
+                </p>
+
+                <button type="button" class="job-button"
+                    onclick="showDetails('data-details')">
+                    View Details
+                </button>
+
+                <button type="button" class="job-button"
+                    onclick="showApplyForm('Data Analyst')">
+                    Apply Now
+                </button>
+
+                <div id="data-details" class="job-details" hidden>
+                    <h3>Data Analyst Details</h3>
+                    <p><strong>Skills:</strong> Excel, SQL, Python</p>
+                    <p><strong>Responsibilities:</strong> Analyze data and prepare reports.</p>
+                    <p><strong>Eligibility:</strong> Basic data analysis knowledge.</p>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <div class="job-icon">🐍</div>
+                <h3>Python Developer</h3>
+                <p>IT &amp; Software</p>
+                <span class="job-type">Entry Level</span>
+
+                <p class="job-description">
+                    Develop applications, write Python code,
+                    and solve basic programming problems.
+                </p>
+
+                <button type="button" class="job-button"
+                    onclick="showDetails('python-details')">
+                    View Details
+                </button>
+
+                <button type="button" class="job-button"
+                    onclick="showApplyForm('Python Developer')">
+                    Apply Now
+                </button>
+
+                <div id="python-details" class="job-details" hidden>
+                    <h3>Python Developer Details</h3>
+                    <p><strong>Skills:</strong> Python, SQL, Basic HTML</p>
+                    <p><strong>Responsibilities:</strong> Write and maintain Python programs.</p>
+                    <p><strong>Eligibility:</strong> Basic Python knowledge.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="apply-form" class="job-details" hidden>
+        <h2>Apply for a Job</h2>
+        <p id="selected-job"></p>
+
+        <label for="student-name">Your Registered Name</label>
+        <input type="text" id="student-name"
+               placeholder="Enter your registered name" required>
+
+        <br><br>
+
+        <label for="student-email">Your Registered Email</label>
+        <input type="email" id="student-email"
+               placeholder="Enter your registered email" required>
+
+        <br><br>
+
+        <button type="button" class="job-button"
+                onclick="submitApplication()">
+            Submit Application
+        </button>
+
+        <p id="apply-message" aria-live="polite"></p>
+    </section>
+</main>
+
+<footer>
+    <p>PlaceMate | Student Placement Portal | College Project</p>
+</footer>
+
+<script>
+let selectedJob = "";
+
+function showDetails(id) {
+    const details = document.getElementById(id);
+    details.hidden = !details.hidden;
+}
+
+function showApplyForm(jobTitle) {
+    selectedJob = jobTitle;
+
+    document.getElementById("selected-job").textContent =
+        "Selected position: " + jobTitle;
+
+    document.getElementById("apply-message").textContent = "";
+    document.getElementById("apply-form").hidden = false;
+
+    document.getElementById("apply-form").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+async function submitApplication() {
+    const name = document.getElementById("student-name").value.trim();
+    const email = document.getElementById("student-email").value.trim();
+    const message = document.getElementById("apply-message");
+
+    if (!name || !email || !selectedJob) {
+        message.textContent = "Please enter your name and email first.";
+        return;
+    }
+
+    message.textContent = "Submitting your application...";
+
+    try {
+        const response = await fetch("/apply", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                name: name,
+                email: email,
+                job_title: selectedJob
+            })
+        });
+
+        message.textContent = await response.text();
+    } catch (error) {
+        message.textContent =
+            "Unable to submit. Please check that the Flask server is running.";
+    }
+}
+</script>
+
+</body>
+</html>

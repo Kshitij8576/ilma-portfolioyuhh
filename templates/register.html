@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration | PlaceMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>Student Registration</h1>
+    <p>Create your PlaceMate account</p>
+
+    <form method="POST" action="/register">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter your full name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create a password" required>
+
+        <label>Course</label>
+        <input type="text" name="course" placeholder="Example: B.Tech CSE">
+
+        <label>Skills</label>
+        <input type="text" name="skills" placeholder="Example: Python, HTML, CSS">
+
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,954 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #172746;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #ffffff;
+    border-bottom: 1px solid #e8edf5;
+}
+
+.logo {
+    color: #173b70;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #526581;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #3478f6;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 8%;
+    background: linear-gradient(135deg, #edf4ff, #ffffff);
+}
+
+.tagline {
+    color: #3478f6;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    color: #172746;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #3478f6;
+}
+
+.description {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #65718a;
+    font-size: 17px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 26px;
+    background: #3478f6;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #245bc2;
+}
+
+.features {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.features h2,
+.opportunities h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card {
+    padding: 30px 22px;
+    border: 1px solid #e5ebf5;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(23, 39, 70, 0.05);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: #245bc2;
+}
+
+.card p {
+    color: #65718a;
+    font-size: 14px;
+}
+
+.opportunities {
+    padding: 65px 8%;
+    text-align: center;
+    background: #f5f8ff;
+}
+
+.opportunities p {
+    color: #65718a;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #65718a;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 65px 6%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-description {
+    color: #65718a;
+    margin-bottom: 35px;
+}
+
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: #ffffff;
+    border: 1px solid #e5ebf5;
+    border-radius: 14px;
+    padding: 28px 20px;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(23, 39, 70, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(23, 39, 70, 0.10);
+}
+
+.job-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.job-card h3 {
+    color: #172746;
+    margin-bottom: 8px;
+}
+
+.job-card p {
+    color: #65718a;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.job-type {
+    display: inline-block;
+    background: #edf4ff;
+    color: #245bc2;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.job-button {
+    display: block;
+    text-align: center;
+    background: #3478f6;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.job-button:hover {
+    background: #245bc2;
+}
+
+@media (max-width: 700px) {
+    .job-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Job Description Styling */
+.job-description {
+    font-size: 14px;
+    color: #5f6b7a;
+    line-height: 1.7;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+/* Job Details Design */
+.job-details {
+    background-color: #f0f6ff;
+    border: 1px solid #c7dcff;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.job-details h3 {
+    color: #1d4ed8;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.job-details p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 12px 0;
+}
+}
+
+.job-details {
+    transition: box-shadow 0.3s ease;
+}
+
+.job-details:hover {
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+/* Application Form Design */
+#apply-form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+#apply-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-weight: 600;
+}
+
+#apply-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+/* Beautiful Homepage Design */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7ff;
+    color: #1e293b;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: white;
+    padding: 25px 40px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+section {
+    padding: 35px 25px;
+}
+
+.features,
+.job-cards {
+    gap: 25px;
+}
+
+.job-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
+}
+
+.job-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.job-button:hover {
+    background: #1d4ed8;
+}
+/* PlaceMate - Clean Professional Colors */
+
+body {
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #ffffff;
+    color: #172554;
+    padding: 25px 40px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+header h1 {
+    color: #172554;
+}
+
+.job-card {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.job-card h3 {
+    color: #172554;
+}
+
+.job-card p {
+    color: #475569;
+}
+
+.job-button {
+    background: #0f766e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+}
+
+.job-button:hover {
+    background: #115e59;
+}
+
+#apply-form {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+}
+
+/* Attractive PlaceMate Header */
+
+header {
+    background: linear-gradient(135deg, #eaf2ff, #f8fafc);
+    color: #172554;
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 1px solid #dbeafe;
+}
+
+header h1 {
+    color: #172554;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 8px;
+}
+
+/* ===== PlaceMate Hero Section ===== */
+
+header {
+    background: #ffffff;
+    color: #14264d;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e5eaf3;
+}
+
+header h1 {
+    color: #14264d;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+/* Main introduction section below the header */
+header + section {
+    background: linear-gradient(135deg, #eef4ff 0%, #ffffff 65%, #e6f7ff 100%);
+    padding: 65px 35px;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+}
+
+header + section h2 {
+    color: #14264d;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.25;
+    max-width: 750px;
+    margin: 0 auto 18px;
+}
+
+header + section p {
+    color: #52627a;
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 700px;
+    margin: 0 auto 22px;
+}
+
+header + section button,
+header + section a {
+    transition: all 0.25s ease;
+}
+
+header + section button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+header + section button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.2);
+}
+
+header + section a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+header + section a:hover {
+    text-decoration: underline;
+}
+
+/* PlaceMate - Attractive Main Introduction */
+
+.hero {
+    background: linear-gradient(135deg, #0f1b3d 0%, #173b70 55%, #2563a6 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 85px 25px;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 35px;
+}
+
+.hero .tagline {
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 auto 22px;
+}
+
+.hero h1 span {
+    color: #7dd3fc;
+}
+
+.hero .description {
+    color: #e2e8f0;
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 650px;
+    margin: 0 auto 28px;
+}
+
+.hero a {
+    display: inline-block;
+    background: #ffffff;
+    color: #173b70;
+    padding: 13px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.hero a:hover {
+    background: #bae6fd;
+    transform: translateY(-3px);
+}
+
+/* PlaceMate Navigation Bar */
+
+header#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 20px 7%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 3px 15px rgba(15, 23, 42, 0.05);
+}
+
+header#home .logo {
+    color: #173b70;
+    font-size: 29px;
+    font-weight: 800;
+    margin: 0;
+}
+
+header#home nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+header#home nav a {
+    color: #334155;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+header#home nav a:hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+/* Section Headings */
+
+#opportunities,
+#about {
+    scroll-margin-top: 25px;
+}
+
+#opportunities h2,
+#about h2 {
+    color: #173b70;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#opportunities > p,
+#about > p {
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Smooth Navigation and Page Effects */
+
+html {
+    scroll-behavior: smooth;
+}
+
+header#home nav a {
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+header#home nav a:hover {
+    color: #1d4ed8;
+    background: #dbeafe;
+}
+
+/* Make the main introduction adapt to smaller screens */
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 55px 18px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero .description {
+        font-size: 15px;
+    }
+
+    header#home {
+        justify-content: center;
+        text-align: center;
+    }
+
+    header#home nav {
+        justify-content: center;
+    }
+}
+
+/* Highlight the main PlaceMate headline */
+
+.hero h1 {
+    letter-spacing: -1px;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero h1 span {
+    display: inline-block;
+    color: #7dd3fc;
+    position: relative;
+}
+
+.hero .tagline {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    padding: 9px 15px;
+    border-radius: 30px;
+}
+
+/* About Section - PlaceMate */
+
+#about {
+    background: linear-gradient(180deg, #f0f6ff, #ffffff);
+    padding: 55px 30px;
+    border-radius: 22px;
+    margin: 35px auto;
+}
+
+#about h2 {
+    color: #173b70;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+#about p {
+    color: #52627a;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* About Section Feature Cards */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 28px 20px;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(23, 59, 112, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.13);
+}
+
+.feature-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    color: #173b70;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Final polish for feature cards */
+
+.feature-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 4px;
+    background: #38bdf8;
+    border-radius: 10px;
+    margin: 0 auto 18px;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.12);
+}
+
+.feature-icon {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+/* Better spacing for PlaceMate About section */
+
+#about {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 50px 30px;
+    box-sizing: border-box;
+}
+
+#about h2 {
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.feature-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+}
+
+/* Gentle entrance animation */
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card {
+    animation: cardFadeIn 0.6s ease both;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-card {
+        animation: none;
+    }
+}
+
+/* Refined PlaceMate Hero Text */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 0 auto 22px;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+}
+
+.hero .description {
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+.hero .tagline {
+    margin-bottom: 22px;
+}
+
+/* About section heading polish */
+
+#about h2 {
+    font-size: clamp(26px, 4vw, 34px);
+    letter-spacing: -0.7px;
+    line-height: 1.3;
+}
+
+#about h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin: 14px auto 0;
+    background: #38bdf8;
+    border-radius: 10px;
+}
+
+#about .feature-card h3 {
+    line-height: 1.4;
+}
+
+#about .feature-card {
+    min-height: 190px;
+    box-sizing: border-box;
+}
+
+/* Job Opportunities Section Heading */
+
+#opportunities h2 {
+    color: #173b70;
+    font-size: clamp(27px, 4vw, 35px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+#opportunities h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #38bdf8;
+    border-radius: 10px;
+    margin: 14px auto 0;
+}
+
+#opportunities {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+/* PlaceMate Responsive Layout */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    #about {
+        margin: 25px 12px;
+        padding: 35px 18px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
